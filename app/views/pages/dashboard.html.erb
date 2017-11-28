@@ -23,7 +23,10 @@
 		<div class="col-lg-3 col-md-3" style="margin-bottom: 50px;">
 			<div class="panel panel-default hidden-xs hidden-sm">
 				<div class="user-profile row-space-4 text-center">
-					<%= image_tag current_user.image, class: "profile-full" %>
+					<% unless current_user.image.blank? %>
+						<%= image_tag current_user.image, class: "profile-full" %>
+					<% else %>
+					<% end %>
 				</div>
 
 				<center>
@@ -68,22 +71,26 @@
 				</div>
 				<div class="panel-body" style="padding-top: 20px;">
 
-			        <% @information.each do |information| %>
+					<% unless @information %>
+				        <% @information.each do |information| %>
 
-			        	<div class="row" style="margin-top: 5px;">
-			        		<div class="col-md-2" style="text-align: right;">
-			        			<div style="font-size: 15px;"><%= information.created_at.strftime('%Y年%-m月%-d日') %></div>
-			        		</div>
-			        		<div class="col-md-9" style="text-align: left; margin-left: 10px;">
-			        			<div style="font-size: 15px; line-height: 1.5em;">
-				        			<% text = information.description %>
-	                				<%= simple_format(text) %>
-			        			</div>
-			        		</div>
-			        		<div class="col-md-1" style="text-align: left;">
-			        		</div>
-			        	</div>
-			        <% end %>
+				        	<div class="row" style="margin-top: 5px;">
+				        		<div class="col-md-2" style="text-align: right;">
+				        			<div style="font-size: 15px;"><%= information.created_at.strftime('%Y年%-m月%-d日') %></div>
+				        		</div>
+				        		<div class="col-md-9" style="text-align: left; margin-left: 10px;">
+				        			<div style="font-size: 15px; line-height: 1.5em;">
+					        			<% text = information.description %>
+		                				<%= simple_format(text) %>
+				        			</div>
+				        		</div>
+				        		<div class="col-md-1" style="text-align: left;">
+				        		</div>
+				        	</div>
+				        <% end %>
+				    <% else %>
+				    	<h4>お知らせはありません。</h4>
+				    <% end %>
 				</div>
 			</div>	
 
