@@ -1,5 +1,5 @@
-<nav style="height: 70px; background-color: none;">
-  <a href="/"><%= image_tag 'logo_gold', :style => "width: 220px; height: auto; margin: 15px;" %></a>
+<nav style="margin-top: 10px;">
+  <a href="/"><%= image_tag 'logo_gray', :style => "width: 200px; height: auto; margin: 0px 25px 5px;" %></a>
   <!-- 
   <span style="color: #FFFFFF;">　素麺を育む 山と海と町</span>
   -->
@@ -7,45 +7,50 @@
   <% if (!user_signed_in?) %>
 
     <!-- ログインしていない時 -->
-    <ul style="float: right; list-style: none; margin: 30px 25px;">   
-      <!--       
-      <li style="margin: 0px 18px; color: #4d4d4d; display: inline;">
-        <%= link_to "オーナーの皆さま", root_path, :style => "color: #FFFFFF;" %>
-      </li>
-      -->
-      <li style="margin: 5px 18px; display: inline;">
-        <%= link_to "会員登録", new_user_registration_path, :style => "color: #FFFFFF;" %>
-      </li>
-      <li style="margin: 5px 18px; display: inline;">
-        <%= link_to "ログイン", new_user_session_path, :style => "color: #FFFFFF;" %>
-      </li>
+    <ul style="float: right; list-style: none;">   
+      <!-- 会員登録 -->
+      <li style="margin: 0px 5px; color: #FFFFFF; display: inline; background: rgba(0,0,0,0.3); padding: 12px;">
+        <%= link_to new_user_registration_path, :style => "color: #FFFFFF; text-decoration: none; font-size: 1.0em;" do %>
+          <i class="fa fa-user-plus" aria-hidden="true"></i>&ensp;
+          会員登録
+        <% end %>
+      </li> 
+      <!-- ログイン -->
+      <li style="margin: 0px 5px; color: #FFFFFF; display: inline; background: rgba(0,0,0,0.3); padding: 12px;">
+        <%= link_to new_user_session_path, :style => "color: #FFFFFF; text-decoration: none; font-size: 1.0em;" do %>
+          <i class="fa fa-sign-in" aria-hidden="true"></i>&ensp;
+          ログイン
+        <% end %>
+      </li> 
     </ul>
 
   <% else %>
 
     <!-- ログインしている時 -->
-    <ul style="float: right; list-style: none; margin: 30px 25px;"> 
-
-      <!-- メニュー表示 -->
-      <li style="margin: 5px 18px; display: inline;">
-       <%= link_to "マイページ", root_path, :style => "color: #FFFFFF;" %>
-      </li>
-      <li style="margin: 5px 18px; display: inline;">
-        <%= link_to "メッセージ", root_path, :style => "color: #FFFFFF;" %>
-      </li>
-
-      <!-- ユーザーネーム -->
-      <li style="margin: 0px 18px; color: #FFFFFF; display: inline;">
-        <%= link_to user_path(current_user) do %>
-          <% if current_user.name %>
-            <%= current_user.name %>
-          <% else %>
-            <span style="color: #FFFFFF;">お客さま</span>
-          <% end %>
+    <ul style="float: right; list-style: none;"> 
+      <!-- マイページ -->
+      <li style="margin: 0px 5px; color: #FFFFFF; display: inline; background: rgba(0,0,0,0.3); padding: 12px;">
+        <%= link_to dashboard_path(current_user), :style => "color: #FFFFFF; text-decoration: none; font-size: 1.0em;" do %>
+          <i class="fa fa-user" aria-hidden="true"></i>&ensp;
+          マイページ
         <% end %>
       </li> 
 
+      <!-- お気に入り -->
+      <li style="margin: 0px 5px; color: #FFFFFF; display: inline; background: rgba(0,0,0,0.3); padding: 12px;">
+        <%= link_to root_path, :style => "color: #FFFFFF; text-decoration: none; font-size: 1.0em;" do %>
+          <i class="fa fa-star" aria-hidden="true"></i>&ensp;
+          お気に入り
+        <% end %>
+      </li> 
 
+      <!-- ショッピングカート -->
+      <li style="margin: 0px 15px 0px 5px ; color: #FFFFFF; display: inline; background: rgba(0,0,0,0.3); padding: 12px;">
+        <%= link_to root_path, :style => "color: #FFFFFF; text-decoration: none; font-size: 1.0em;" do %>
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>&ensp;
+          買い物かご
+        <% end %>
+      </li> 
     </ul>
 
   <% end %>

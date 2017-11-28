@@ -1,1 +1,90 @@
-_footer.html.erb
+<div style="background-color: #cccccc;">
+
+    <div class="container">
+
+        <div class="row" style="margin-top: 33px;">
+            <div class="col-md-2">
+                <a class="navbar-brand" href="/">
+                    <%= image_tag 'logo_gray', :style => "width: 170px; height: auto; margin: 3px 0px 0px;" %>
+                </a>
+            </div>
+
+            <div class="col-md-10">
+                <ul class="list-inline" style="color: #555555; margin: 30px 0px 0px 30px;">
+                    <li>
+                        <%= link_to 'そうめんをご購入のお客さま', forcustomer_path, :style => "color: #555555;" %>
+                    </li>　|　
+                    <li>
+                        <%= link_to '流通業者・バイヤーのみなさま', forbuyer_path, :style => "color: #555555;" %>
+                    </li>　|　
+                    <li>
+                        <%= link_to '南島原のそうめん業者さま', formember_path, :style => "color: #555555;" %>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <hr style="border-color: #555555; margin-top: 20px;">
+
+        <div class="row" style="padding: 0px 20px;">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-3">
+                <div style="list-style:none; text-align: left; font-size: 18px; margin-bottom: 10px; color: #555555;">
+                	Soumen Cityについて
+                </div>
+                <div style="list-style:none; text-align: left; line-height: 2.0em;">
+                    <li><%= link_to 'SOUMEN CITYとは', about_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to '素麺のDNA', dna_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to '5つの鉄則', rule_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to 'おすすめレシピ', root_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to 'オンラインストア', root_path, :style => "color: #555555;" %></li>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div style="list-style:none; text-align: left; font-size: 17px; margin-bottom: 10px; color: #555555;">
+                	サイトのご利用について
+                </div>
+                <div style="list-style:none; text-align: left; line-height: 2.0em; color: #555555;">
+                    <li><%= link_to 'お買物ガイド', shopping_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to 'ご利用規約', terms_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to '個人情報保護方針', privacy_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to '特定商取引に関する表記', transactions_path, :style => "color: #555555;" %></li>
+                    <li><%= link_to '運営組織', team_path, :style => "color: #555555;" %></li>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <div style="text-align: left; font-size: 16px; margin-bottom: 10px; color: #555555;">ご意見をお聞かせください</div>
+                    <div>
+                        <%= text_area :listing_description, rows: 10, class: "form-control radius footer-field" %>
+                    </div>
+                </div>     
+            </div>
+        </div>
+
+        <hr style="border-color: #555555;">
+
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 50px; color: #f5f5f5; text-align: center;">
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://twitter.com/Taving_Guide"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.facebook.com/hantworks/"><i class="fa fa-facebook"></i></a></li>       
+                    <li>
+                        <%= mail_to 'info@hantworks.co.jp', '📨',
+                        subject: "Crasina｜お問い合わせ",
+                        body: "（こちらにお問い合わせ内容を記入し、そのまま送信ください）", 
+                        :encode => 'hex'%>  
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+            <div class="col-md-12" style="text-align: center;">
+                <span class="copyright" style="color: #555555;">Copyright &copy; SOUMEN CITY 2018</span>
+            </div>
+        </div>
+
+    </div>
+</div>

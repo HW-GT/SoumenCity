@@ -1,0 +1,127 @@
+<!-- ナビバー表示 -->
+<div>
+	<%= render 'partial/navbar' %>
+
+	<% if current_user.user_type == nil %>
+		<%= render 'partial/customer_subbar'%>
+	<% elsif current_user.user_type == 1 %>
+		<%= render 'partial/customer_subbar'%>
+	<% else %>
+		<%= render 'partial/master_subbar'%>
+	<% end %>
+</div>
+
+<!-- メインコンテンツ -->
+<div class="container">
+
+	<h3>お知らせ</h3>
+	<hr>
+
+	<div class="row">
+
+		<!-- 左カラム -->
+		<div class="col-lg-3 col-md-3" style="margin-bottom: 50px;">
+			<div class="panel panel-default hidden-xs hidden-sm">
+				<div class="user-profile row-space-4 text-center">
+					<%= image_tag current_user.image, class: "profile-full" %>
+				</div>
+
+				<center>
+					<div style="font-size: 18px; padding-bottom: 20px; padding-right: 14px; padding-left: 14px;">
+						<%= current_user.name %>
+					</div>
+					<div style="font-size: 13px; padding-bottom: 5px;">
+						<%= link_to "プロフィールを見る", user_path(current_user) %>
+					</div>					
+					<div style="font-size: 13px; padding-bottom: 5px;">
+						<%= link_to "プロフィールを編集", edit_user_registration_path %>
+					</div><br>
+				</center>
+			</div>
+
+			<div class="panel panel-default hidden-xs hidden-sm">
+				<div class="panel-heading" style="font-size: 15px;">
+					利用履歴
+				</div>
+				<div class="panel-body">
+					<div id="ver-tel">
+						最終オンライン日
+						<br>
+						<%= current_user.current_sign_in_at.strftime("%Y年%m月%d日") %>
+					</div>
+					<br>
+					<div id="ver-tel">
+						会員登録日
+						<br>
+						<%= current_user.created_at.strftime("%Y年%m月%d日") %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 右カラム -->
+		<div class="col-md-9 col-xs-12">
+			<div class="panel panel-default hidden-xs hidden-sm">
+				<div class="panel-heading">
+					<span style="font-size: 18px;">お知らせ</span>
+				</div>
+				<div class="panel-body" style="padding-top: 20px;">
+
+			        <% @information.each do |information| %>
+
+			        	<div class="row" style="margin-top: 5px;">
+			        		<div class="col-md-2" style="text-align: right;">
+			        			<div style="font-size: 15px;"><%= information.created_at.strftime('%Y年%-m月%-d日') %></div>
+			        		</div>
+			        		<div class="col-md-9" style="text-align: left; margin-left: 10px;">
+			        			<div style="font-size: 15px; line-height: 1.5em;">
+				        			<% text = information.description %>
+	                				<%= simple_format(text) %>
+			        			</div>
+			        		</div>
+			        		<div class="col-md-1" style="text-align: left;">
+			        		</div>
+			        	</div>
+			        <% end %>
+				</div>
+			</div>	
+
+
+			<h4 style="margin-top: 35px;">受注情報</h4>
+			<hr style="border-color: #dcdcdc; margin-top: -6px; margin-bottom: 0px;">
+			<div class="ul-unstyled">
+
+		    </div>
+
+			
+			<h4 style="margin-top: 40px;">商品情報</h4>
+			<hr style="border-color: #dcdcdc; margin-top: -6px; margin-bottom: 0px;">
+			<div class="ul-unstyled">
+
+            </div>
+
+
+            <h4 style="margin-top: 40px;">レシピ情報</h4>
+			<hr style="border-color: #dcdcdc; margin-top: -6px; margin-bottom: 0px;">
+			<div class="ul-unstyled">
+
+            </div>
+
+
+            <h4 style="margin-top: 40px;">ブログ情報</h4>
+			<hr style="border-color: #dcdcdc; margin-top: -6px; margin-bottom: 0px;">
+			<div class="ul-unstyled">
+
+            </div>
+
+		</div>
+	</div> 	
+</div>
+
+
+
+
+
+<!-- Footer -->
+<%= render 'partial/footer' %>
