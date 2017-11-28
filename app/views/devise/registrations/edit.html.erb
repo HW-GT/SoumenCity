@@ -15,7 +15,7 @@
 
             <!-- プロフィール画像を表示 -->
             <div style="margin-bottom: 20px;">
-              <div class="user-profile row-space-4 text-center" style="border: solid 0.5px #a9a9a9;">
+              <div class="user-profile row-space-4 text-center" style="border: solid 0.5px #dcdcdc;">
                 <% if @user.image %>
                   <%= image_tag @user.image, :style => "width: 100%; height: 200px; object-fit: cover; radius: 50px;" %>
                 <% else %>
@@ -26,7 +26,7 @@
 
             <!-- カバー画像を表示 -->
             <div style="margin-bottom: 20px;">
-              <div class="user-profile row-space-4 text-center" style="border: solid 0.5px #a9a9a9;">
+              <div class="user-profile row-space-4 text-center" style="border: solid 0.5px #dcdcdc;">
                 <% if @user.cover %>
                   <%= image_tag @user.cover, :style => "width: 100%; height: 200px; object-fit: cover;" %>
                 <% else %>
@@ -197,3 +197,6 @@
   <% end %>
 </div><br><br><br>
 
+
+<!-- Footer -->
+<%= render 'partial/footer' %>
