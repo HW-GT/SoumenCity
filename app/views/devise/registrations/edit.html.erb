@@ -14,23 +14,23 @@
           <center>
 
             <!-- プロフィール画像を表示 -->
-            <div>
+            <div style="margin-bottom: 20px;">
               <div class="user-profile row-space-4 text-center" style="border: solid 0.5px #a9a9a9;">
                 <% if @user.image %>
-                  <%= image_tag @user.image, :style => "width: 100%; height: 200px; object-fit: cover;" %>
+                  <%= image_tag @user.image, :style => "width: 100%; height: 200px; object-fit: cover; radius: 50px;" %>
                 <% else %>
-                  <%= image_tag 'mugi.jpg', :style => "width: 100%; height: 200px; object-fit: cover;" %>
+                  <%= image_tag 'avatar-default.png', :style => "width: 100%; height: 200px; object-fit: cover;" %>
                 <% end %>
               </div>
             </div>
 
             <!-- カバー画像を表示 -->
-            <div>
+            <div style="margin-bottom: 20px;">
               <div class="user-profile row-space-4 text-center" style="border: solid 0.5px #a9a9a9;">
                 <% if @user.cover %>
-                  <%= image_tag @user.image, :style => "width: 100%; height: 200px; object-fit: cover;" %>
+                  <%= image_tag @user.cover, :style => "width: 100%; height: 200px; object-fit: cover;" %>
                 <% else %>
-                  <%= image_tag 'mugi.jpg', :style => "width: 100%; height: 200px; object-fit: cover;" %>
+                  <%= image_tag 'missing.png', :style => "width: 100%; height: 200px; object-fit: cover;" %>
                 <% end %>
               </div>
             </div>
