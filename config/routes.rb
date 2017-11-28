@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   get '/formember' => 'pages#formember'
 
   # ユーザー登録
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
 
-  # ユーザー登録プロフィール
+  # ユーザープロフィールの表示
   resources :users, only: [:show]
 
   # その他の処理
