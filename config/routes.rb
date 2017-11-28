@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'information/index'
+
+  get 'information/show'
+
   root :to => 'pages#index'
 
   # 概要表示
