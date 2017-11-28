@@ -1,0 +1,217 @@
+<div style="position: fixed;">
+	<!-- fullscreen_navbar -->
+	<div style="position: fixed; width: 100%; z-index: 999;">
+		<%= render 'partial/navbar' %>	
+	</div>
+
+	<!-- fullscreen_movie -->
+	<%= video_tag("movie.mp4",:autoplay => false, :controls => false, :style => "width: 100%; height: 100vh; object-fit: cover; margin-top: -10px;") %>
+
+	<!-- fullscreen_underbutton -->
+	<div class="row" style="background-color: none; margin-top: -100px;">
+		<div class="col-md-8 col-md-offset-2">
+			<ul style="list-style: none;">
+				<li style="display: inline;">
+					<%= link_to root_path, :style => "font-size: 1.3em; color: #FFFFFF !important; text-decoration: none;" do %>
+						SOUMEN CITYとは
+					<% end %>
+				</li>&emsp;&emsp;
+				<li style="display: inline;">
+					<%= link_to root_path, :style => "font-size: 1.3em; color: #FFFFFF !important; text-decoration: none;" do %>
+						素麺のDNA
+					<% end %>
+				</li>&emsp;&emsp;
+				<li style="display: inline;">
+					<%= link_to root_path, :style => "font-size: 1.3em; color: #FFFFFF !important; text-decoration: none;" do %>
+						５つの鉄則
+					<% end %>
+				</li>&emsp;&emsp;
+				<li style="display: inline;">
+					<%= link_to root_path, :style => "font-size: 1.3em; color: #FFFFFF !important; text-decoration: none;" do %>
+						オンラインストア
+					<% end %>
+				</li>&emsp;&emsp;
+				<li style="display: inline;">
+					<%= link_to root_path, :style => "font-size: 1.3em; color: #FFFFFF !important; text-decoration: none;" do %>
+						レシピ集
+					<% end %>
+				</li>&emsp;&emsp;
+				<li style="display: inline;">
+					<%= link_to root_path, :style => "font-size: 1.3em; color: #FFFFFF !important; text-decoration: none;" do %>
+						イベント
+					<% end %>
+				</li>				
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div style="position: absolute; margin-top: 100vh; background-color: #eeeeee; border-top: solid 1px #cccccc;">
+
+	<!-- people_photo_list_to_listing -->
+	<div class="wide_container" style="background-color: #ffffff; margin-bottom: 80px;">
+
+		<div class="text-center" style="padding: 80px;">
+			<div style="font-family: sans-serif !important; font-size: 2.0em;">麺師 図鑑</div>
+		</div>
+
+		<div style="margin: 0px 70px;">
+			<div class="row" style="margin-bottom: 30px;">
+				<div class="col-md-4 bevel">
+					<%= image_tag 'test_1.jpg', :class => "bevel", :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>
+
+				<div class="col-md-4">
+					<%= image_tag 'test_2.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>
+
+				<div class="col-md-4">
+					<%= image_tag 'test_3.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>	
+			</div>
+
+			<div class="row" style="margin-bottom: 30px;">
+				<div class="col-md-4">
+					<%= image_tag 'test_4.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>
+
+				<div class="col-md-4">
+					<%= image_tag 'test_5.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>
+
+				<div class="col-md-4">
+					<%= image_tag 'test_6.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>	
+			</div>
+
+			<div class="row" style="margin-bottom: 30px;">
+				<div class="col-md-4">
+					<%= image_tag 'test_7.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>
+
+				<div class="col-md-4">
+					<%= image_tag 'test_8.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>
+
+				<div class="col-md-4">
+					<%= image_tag 'test_9.jpg', :style => "width: 100%; height: 250px; object-fit: cover;" %>
+					
+				</div>	
+			</div>
+		</div>
+
+	</div>
+
+	<div>
+		<h5 style="color: #cccccc;">SOUMEN CITY CRAFTMEN</h5>
+	</div>
+
+
+
+	<!-- Footer -->
+	<div style="background-color: #2c2c2c;">
+
+	    <div class="container">
+
+	        <div class="row" style="margin-top: 33px;">
+	            <div class="col-md-2">
+	                <a class="navbar-brand" href="/">
+	                    <%= image_tag 'logo_gold', :style => "width: 170px; height: auto; margin: 3px 0px 0px;" %>
+	                </a>
+	            </div>
+
+	            <div class="col-md-10">
+	                <ul class="list-inline" style="color: #c0c0c0; margin: 30px 0px 0px 30px;">
+	                    <li>
+	                        <%= link_to 'そうめんをご購入のお客さま', root_path, :style => "color: #c0c0c0;" %>
+	                    </li>　|　
+	                    <li>
+	                        <%= link_to '流通業者・バイヤーのみなさま', root_path, :style => "color: #c0c0c0;" %>
+	                    </li>　|　
+	                    <li>
+	                        <%= link_to '南島原のそうめん業者さま', root_path, :style => "color: #c0c0c0;" %>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+
+	        <hr style="border-color: #444444; margin-top: 20px;">
+
+	        <div class="row" style="padding: 0px 20px;">
+	            <div class="col-md-1">
+	            </div>
+	            <div class="col-md-3">
+	                <div style="list-style:none; text-align: left; font-size: 18px; margin-bottom: 10px; color: #c0c0c0;">
+	                	Soumen Cityについて
+	                </div>
+	                <div style="list-style:none; text-align: left; line-height: 2.0em;">
+	                    <li><%= link_to 'SOUMEN CITYとは', root_path, :style => "color: #c0c0c0;" %></li>
+	                    <li><%= link_to '素麺のDNA', root_path, :style => "color: #c0c0c0;" %></li>
+	                    <li><%= link_to '5つの鉄則', root_path, :style => "color: #c0c0c0;" %></li>
+	                    <li><%= link_to 'SOUMEN図鑑', root_path, :style => "color: #c0c0c0;" %></li>
+	                </div>
+	            </div>
+	            <div class="col-md-3">
+	                <div style="list-style:none; text-align: left; font-size: 17px; margin-bottom: 10px; color: #c0c0c0;">
+	                	サイト運営について
+	                </div>
+	                <div style="list-style:none; text-align: left; line-height: 2.0em; color: #c0c0c0;">
+	                    <li><%= link_to 'お買物ガイド', root_path, :style => "color: #c0c0c0;" %></li>
+	                    <li><%= link_to 'ご利用規約', root_path, :style => "color: #c0c0c0;" %></li>
+	                    <li><%= link_to '個人情報保護方針', root_path, :style => "color: #c0c0c0;" %></li>
+	                    <li><%= link_to '特定商取引に関する表記', root_path, :style => "color: #c0c0c0;" %></li>
+	                </div>
+	            </div>
+	            <div class="col-md-5">
+	                <div class="form-group">
+	                    <div style="text-align: left; font-size: 16px; margin-bottom: 10px; color: #c0c0c0;">ご意見をお聞かせください</div>
+	                    <div>
+	                        <%= text_area :listing_description, rows: 10, class: "form-control radius footer-field" %>
+	                    </div>
+	                </div>     
+	            </div>
+	        </div>
+
+	        <hr style="border-color: #444444;">
+
+	        <div class="row">
+	            <div class="col-md-12" style="margin-top: 50px; color: #f5f5f5; text-align: center;">
+	                <ul class="list-inline social-buttons">
+	                    <li><a href="https://twitter.com/Taving_Guide"><i class="fa fa-twitter"></i></a></li>
+	                    <li><a href="https://www.facebook.com/hantworks/"><i class="fa fa-facebook"></i></a></li>       
+	                    <li>
+	                        <%= mail_to 'info@hantworks.co.jp', '📨',
+	                        subject: "Crasina｜お問い合わせ",
+	                        body: "（こちらにお問い合わせ内容を記入し、そのまま送信ください）", 
+	                        :encode => 'hex'%>  
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+
+	        <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+	            <div class="col-md-12" style="text-align: center;">
+	                <span class="copyright" style="color: #c0c0c0;">Copyright &copy; SOUMEN CITY 2018</span>
+	            </div>
+	        </div>
+
+	    </div>
+	</div>
+
+</div>
+
+
+
+
+
+
+

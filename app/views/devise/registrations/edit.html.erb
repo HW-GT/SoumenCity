@@ -1,0 +1,247 @@
+<%= render 'partial/navbar' %>
+<%= render 'partial/sub_navbar'%>
+
+<div class="container">
+
+  <h3>プロフィール編集</h3>
+  <hr>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render 'partial/deviseErrorMsg' %>
+
+      <div class="row">
+        <div class="col-md-3 row-space-4">
+          <center>
+
+            <!-- プロフィール画像を表示 -->
+            <div>
+              <div class="user-profile row-space-4 text-center" style="border: solid 0.5px #a9a9a9;">
+                <%= image_tag @user.image, class: "profile-full img-square" %>
+              </div>
+            </div>
+
+            <%= render 'partial/profileverticalnavbar'%>
+
+            <!-- 自分のプロフィールへのリンク -->
+            <%= link_to "自分のプロフィールを確認する", user_path(current_user), class: "btn btn-default" %><br><br>
+            
+          </center>
+        </div>
+
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <div class="panel-heading" style="font-size: 15px;">基本情報　<span style="font-size: 13px;"> ー 自分の人柄や状況を知ってもらいましょう ー</span></div>
+            <div class="panel-body">
+
+              <div class="form-padding">
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>ニックネーム（公開）</h5>
+                  </div>
+                  <div class="col-md-3 form-group">
+                    <%= f.text_field :name, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+                  <div class="col-md-3">
+                    <h5>会員種別（公開）</h5>
+                  </div>
+                  <div class="col-md-3 form-group">
+                    <%= f.select :account_type, [["個人","個人"], ["法人（企業・店舗）","法人"]], {prompt:"選択"}, {required: 'true', autofocus: 'true', class: 'form-control radius'} %>
+                  </div>                  
+                </div>
+
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>住所／都道府県（公開）</h5>
+                  </div>
+                  <div class="col-md-3 form-group" style="padding-bottom: 10px;">
+                    <%= f.select :user_prefecture, [["北海道","北海道"], ["青森県","青森県"], ["岩手県","岩手県"], ["秋田県","秋田県"], ["宮城県","宮城県"], ["山形県","山形県"], ["福島県","福島県"], ["群馬県","群馬県"], ["栃木県","栃木県"], ["茨城県","茨城県"], ["埼玉県","埼玉県"], ["千葉県","千葉県"], ["東京都","東京都"], ["神奈川県","神奈川県"], ["新潟県","新潟県"], ["長野県","長野県"], ["山梨県","山梨県"], ["富山県","富山県"], ["石川県","石川県"], ["福井県","福井県"], ["静岡県","静岡県"], ["愛知県","愛知県"], ["岐阜県","岐阜県"], ["三重県","三重県"], ["滋賀県","滋賀県"], ["京都府","京都府"], ["奈良県","奈良県"], ["大阪府","大阪府"], ["兵庫県","兵庫県"], ["和歌山県","和歌山県"], ["岡山県","岡山県"], ["広島県","広島県"], ["鳥取県","鳥取県"], ["島根県","島根県"], ["山口県","山口県"], ["香川県","香川県"], ["徳島県","徳島県"], ["愛媛県","愛媛県"], ["高知県","高知県"], ["福岡県","福岡県"], ["大分県","大分県"], ["佐賀県","佐賀県"], ["長崎県","長崎県"], ["熊本県","熊本県"], ["宮崎県","宮崎県"], ["鹿児島県","鹿児島県"], ["沖縄県","沖縄県"], ["海外","海外"]], {prompt:"選択"}, {required: 'true', autofocus: 'true', class: 'form-control radius'} %>                  
+                  </div>
+                  <div class="col-md-3">
+                    <h5>住所／市区町村（公開）</h5>
+                  </div>
+                  <div class="col-md-3 form-group">
+                    <%= f.text_field :user_address, :placeholder => "例：世田谷区", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: right;"> 
+                  <div class="col-md-3">
+                    <h5>性別（公開）</h5>
+                  </div>
+                  <div class="col-md-3 form-group" style="padding-bottom: 10px;">
+                    <%= f.select :sex, [["男性","男性"], ["女性","女性"], ["なし（法人）","なし"]], {prompt:"選択"}, {required: 'true', autofocus: 'true', class: 'form-control radius'} %>
+                  </div>
+                  <div class="col-md-3">
+                    <h5>年齢（公開）</h5>
+                  </div>
+                  <div class="col-md-3 form-group">
+                    <%= f.select :age, [["10代","10代"], ["20代","20代"], ["30代","30代"], ["40代","40代"], ["50代","50代"], ["60代","60代"], ["70代","70代"], ["80代","80代"], ["なし（法人）","なし"]], {prompt:"選択"}, {required: 'true', autofocus: 'true', class: 'form-control radius'} %>
+                  </div>
+                </div>
+                <div class="row" style="text-align: right;"> 
+                  <div class="col-md-3">
+                    <h5>自己紹介（公開）</h5>
+                  </div>
+                  <div class="col-md-9 form-group" style="padding-bottom: 10px;">
+                    <%= f.text_area :description, rows: 7, :placeholder => "入力（改行やスペースも反映されます）", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: right;"> 
+                  <div class="col-md-3">
+                    <h5>いまの状況（公開）</h5>
+                  </div>
+
+                  <div class="col-md-4 form-group" style="padding-bottom: 10px;">
+                    <%= f.select :status, [ ["新しい住まい","新しい住まい"], ["新築の一戸建て","新築の一戸建て"], ["新築のマンション","新築のマンション"], ["一戸建て","一戸建て"], ["マンション","マンション"], ["賃貸マンション","賃貸マンション"], ["賃貸アパート","賃貸アパート"], ["ショップや店舗","ショップや店舗"], ["オフィスや事務所","オフィスや事務所"], ["ホテルや旅館","ホテルや旅館"], ["庭やテラス","庭やテラス"], ["土間や暖炉","土間や暖炉"], ["駐車場やガレージ","駐車場やガレージ"], ["土地","土地"], ["家具や家電、照明","家具や家電、照明"], ["カーテンやカーペット","カーテンやカーペット"], ["食器や生活雑貨","食器や生活雑貨"], ["インテリア雑貨や装飾品","インテリア雑貨や装飾品"], ["植栽やインテリアグリーン","植栽やインテリアグリーン"], ["エクステリア家具や設備","エクステリア家具や設備"], ["インテリア全般","インテリア全般"], ["エクステリア全般","エクステリア全般"]], {prompt:"選択"}, {required: 'true', autofocus: 'true', class: 'form-control radius'} %>
+                  </div>
+                  <div class="col-md-1" style="margin-top: -2px;">
+                    <center><h4>を</h4></center>
+                  </div>
+                  <div class="col-md-4 form-group" style="padding-bottom: 10px;">
+                    <%= f.select :status_second, [["工事検討しています","工事検討しています"], ["購入検討しています","購入検討しています"], ["計画しています","計画しています"], ["相談しています","相談しています"], ["探しています","探しています"], ["建てています","建てています"], ["リフォームしています","リフォームしています"], ["リノベーションしています","リノベーションしています"], ["増築しています","増築しています"], ["整備しています","整備しています"], ["修理しています","修理しています"], ["解体しています","解体しています"], ["作っています","作っています"], ["販売しています","販売しています"], ["貸しています","貸しています"], ["買いそろえています","買いそろえています"], ["買い替えています","買い替えています"], ["購入しました","購入しました"], ["完成させました","完成させました"], ["お見せしています","お見せしています"], ["満喫しています","満喫しています"]], {prompt:"選択"}, {required: 'true', autofocus: 'true', class: 'form-control radius'} %>
+                  </div>
+                </div>                
+
+                <div class="row"> 
+                  <div class="col-md-3" style="text-align: right;">
+                    <h5 style="font-size: 14px;">プロフィール写真（公開）</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.file_field :image, :class => 'form-control radius' %>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <div class="panel-heading" style="font-size: 15px;">ウェブサイト　<span style="font-size: 13px;"> ー 自分のSNSアカウントを公開できます ー</span></div>
+            <div class="panel-body">
+              
+              <div class="form-padding">
+
+                <div class="row" style="text-align: right; padding-bottom: 10px;"> 
+                  <div class="col-md-4">
+                    <h5>Instagram（公開）</h5>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <%= f.text_field :instagram, :placeholder => "例：https://www.instagram.com/*******/（公開しない場合は空欄）", :class => 'form-control radius' %>
+                  </div>
+                </div>
+                
+                <div class="row" style="text-align: right; padding-bottom: 10px;"> 
+                  <div class="col-md-4">
+                    <h5>Facebook（公開）</h5>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <%= f.text_field :facebook, :placeholder => "例：https://www.facebook.com/*******（公開しない場合は空欄）", :class => 'form-control radius' %>
+                  </div>
+                </div>
+
+                <div class="row" style="text-align: right;"> 
+                  <div class="col-md-4">
+                    <h5>Blog/Homepage（公開）</h5>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <%= f.text_field :homepage, :placeholder => "例：https://www.*******.co.jp/*******（公開しない場合は空欄）", :class => 'form-control radius' %>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <div class="panel-heading" style="font-size: 15px;">連絡先　<span style="font-size: 13px;"> ー 正しく登録することで信頼性が高まります ー</span></div>
+            <div class="panel-body">
+              <br>
+              <div class="form-padding" style="margin-top: -12px;">
+                <div class="row" style="padding-bottom: 10px;"> 
+                  <div class="col-md-4" style="text-align: right; margin-top: -8px;">
+                    <h5>メールアドレス（非公開）</h5>
+                  </div>
+                  <div class="col-md-8 form-group" style="padding-top: 0px;">
+                    <%= @user.email %>&nbsp;&nbsp;<span style="color: #ff4500; border: solid 0.5px #ff4500;">&nbsp;認証済&nbsp;</span>
+                  </div>
+                </div>
+                <div class="row" style="text-align: right; padding-top: 7px;"> 
+                  <div class="col-md-4">
+                    <h5>電話番号（非公開）</h5>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <%= f.text_field :phone_number, :placeholder => "入力（例：090-1234-5678）", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>
+                <div class="row" style="text-align: right; padding-top: 10px;"> 
+                  <div class="col-md-4">
+                    <h5>領収証宛名（非公開）</h5>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <%= f.text_field :receipt_name, :placeholder => "個人名・法人名を入力（領収証発行時に反映されます）", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <div class="panel-heading" style="font-size: 15px;">パスワード　<span style="font-size: 13px;"> ー セキュリティ強化のため、定期的に変更しましょう ー</span></div>
+            <div class="panel-body">
+
+              <div class="form-padding">
+                <div class="row" style="text-align: right; padding-bottom: 10px;"> 
+                  <div class="col-md-4" style="padding-top: 7px;">
+                    <%= f.label :新しいパスワード %>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <%= f.password_field :password, :placeholder => "8文字以上（変更しない場合は空欄）", autocomplete: "off", :class => 'form-control radius' %>
+                  </div>
+                </div>
+                
+                <div class="row" style="text-align: right;"> 
+                  <div class="col-md-4" style="padding-top: 8px;">
+                    <%= f.label :新しいパスワードの確認 %>
+                  </div>
+                  <div class="col-md-8 form-group">
+                    <%= f.password_field :password_confirmation, :placeholder => "8文字以上（変更しない場合は空欄）", autocomplete: "off", :class => 'form-control radius' %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div><br>
+
+    <div class="actions" style="text-align: center;">
+      <%= link_to "キャンセル", dashboard_path, class: "btn btn-danger" %>&nbsp;&nbsp;&nbsp;
+      <%= f.submit "プロフィールを更新", :class => "btn btn-primary" %>
+
+    </div>
+
+  <% end %>
+</div><br><br><br>
+
+<%= render 'pages/footer' %>
