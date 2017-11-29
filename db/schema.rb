@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128113039) do
+ActiveRecord::Schema.define(version: 20171128181944) do
 
   create_table "information", force: :cascade do |t|
     t.string   "title"
@@ -44,6 +44,14 @@ ActiveRecord::Schema.define(version: 20171128113039) do
     t.string   "ig_url"
     t.string   "hp_url"
     t.integer  "user_type"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

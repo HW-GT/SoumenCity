@@ -16,8 +16,6 @@ Rails.application.routes.draw do
 
   # ユーザー登録
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations' }
-
-  # ユーザープロフィールの表示
   resources :users, only: [:show]
 
   # その他の処理

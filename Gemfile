@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'paperclip'
+gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
 
 gem 'bootstrap-sass', '~> 3.3.7'
@@ -22,6 +22,7 @@ gem 'devise'
 gem 'toastr-rails'
 gem 'omniauth-facebook'
 gem "figaro", "~> 1.1.0"
+
 
 
 group :production do
