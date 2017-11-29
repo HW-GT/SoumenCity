@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  get 'companies/index'
+
+  get 'companies/show'
+
+  get 'companies/new'
+
+  get 'companies/create'
+
+  get 'companies/edit'
+
+  get 'companies/update'
+
+  get 'information/new'
+
+  get 'information/create'
+
+  get 'information/edit'
+
+  get 'information/update'
+
   get 'information/index'
 
   get 'information/show'
