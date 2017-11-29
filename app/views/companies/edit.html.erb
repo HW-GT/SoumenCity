@@ -1,2 +1,135 @@
-<h1>Companies#edit</h1>
-<p>Find me in app/views/companies/edit.html.erb</p>
+<%= render 'partial/navbar' %>
+<%= render 'partial/master_subbar'%>
+
+<div class="container">
+
+  <h3>店舗情報の編集</h3>
+  <hr>
+
+  <%= form_for([:company, @company], url:  companies_update_path,  html: { multipart: true}) do |f| %>
+
+      <div class="row">
+        <div class="col-md-3 row-space-4">
+          <center>
+
+            <!-- 店舗プレビューへのリンク -->
+            <%= link_to "店舗情報のプレビューを見る", companies_show_path, class: "btn btn-default" %><br><br>
+            
+          </center>
+        </div>
+
+        <div class="col-md-9">
+          <div class="panel panel-default">
+            <div class="panel-heading" style="font-size: 15px;">基本情報　<span style="font-size: 13px;"> ー お店の概要を知ってもらいましょう ー</span></div>
+            <div class="panel-body">
+
+              <div class="form-padding">
+
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>店舗名</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.text_field :store_name, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>会社名（法人名）</h5>
+                  </div>
+                  <div class="col-md-9 form-group" style="padding-bottom: 10px;">
+                  	<%= f.text_field :company_name, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>        
+
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>管理者名</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.text_field :manager_name, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>郵便番号</h5>
+                  </div>
+                  <div class="col-md-9 form-group" style="padding-bottom: 10px;">
+                  	<%= f.text_field :postal_code, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>          
+
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>住所</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.text_field :address, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>アクセス</h5>
+                  </div>
+                  <div class="col-md-9 form-group" style="padding-bottom: 10px;">
+                  	<%= f.text_field :access, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>            
+
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>電話番号</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.text_field :phone_number, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>FAX番号</h5>
+                  </div>
+                  <div class="col-md-9 form-group" style="padding-bottom: 10px;">
+                  	<%= f.text_field :fax_number, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>            
+
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>営業時間</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.text_field :business_hours, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h5>ご紹介</h5>
+                  </div>
+                  <div class="col-md-9 form-group" style="padding-bottom: 10px;">
+                  	<%= f.text_area :description, rows: 7, :placeholder => "入力（改行やスペースも反映されます）", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>       
+
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
+                  <div class="col-md-3">
+                    <h5>ホームページ</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.text_field :homepage, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>      
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div><br>
+
+    <div class="actions" style="text-align: center;">
+				<%= f.submit "店舗情報を更新", :class => "btn btn-primary" %>
+    </div>
+
+	<% end %>
+</div><br><br><br>
+
+
+<!-- Footer -->
+<%= render 'partial/footer' %>
+
