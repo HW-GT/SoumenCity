@@ -31,8 +31,15 @@
             <% end %>
         </li>
         <li style="padding: 0px 27px; display: inline;">
-            <%= link_to companies_edit_path, :style => "color: #555555; text-decoration: none;" do %>
-                店舗情報
+            <% @company = Company.find_by_user_id(current_user.id) %>
+            <% unless @company %>
+                <%= link_to companies_new_path, :style => "color: #555555; text-decoration: none;" do %>
+                    店舗情報
+                <% end %>
+            <% else %>
+                <%= link_to companies_edit_path, :style => "color: #555555; text-decoration: none;" do %>
+                    店舗情報
+                <% end %>
             <% end %>
         </li> 
         <li style="padding: 0px 27px; display: inline;">

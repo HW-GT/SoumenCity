@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   get '/formember' => 'pages#formember'
 
   # 店舗情報
-  get 'companies/edit'
+  get 'companies/new'
+  post 'companies/create'
   get 'companies/show'
-  post 'companies/update'
+  get 'companies/edit'
+  patch 'companies/update'
 
   # お知らせ表示
   get 'information/index'
