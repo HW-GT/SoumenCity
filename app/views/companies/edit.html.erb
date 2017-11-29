@@ -11,10 +11,15 @@
       <div class="row">
         <div class="col-md-3 row-space-4">
           <center>
-
+          	<!-- 店舗画像 -->
+						<% unless @company.image.blank? %>
+							<%= image_tag current_user.image, :style => "width: 100%; height: 200px; object-fit: cover; border-bottom: solid 1px #dcdcdc;" %>
+						<% else %>
+							<%= image_tag 'missing.png', :style => "width: 100%; height: 200px; object-fit: cover; border-bottom: solid 1px #dcdcdc;" %>
+						<% end %>
+						<br><br>
             <!-- 店舗プレビューへのリンク -->
-            <%= link_to "店舗情報のプレビューを見る", companies_show_path, class: "btn btn-default" %><br><br>
-            
+            <%= link_to "店舗情報のプレビューを見る", companies_show_path, class: "btn btn-default" %>            
           </center>
         </div>
 
