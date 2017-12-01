@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'products/index'
+
+  get 'products/show'
+
+  get 'products/new'
+
+  get 'products/create'
+
+  get 'products/edit'
+
+  get 'products/update'
+
   root :to => 'pages#index'
 
   # ユーザー登録と編集
