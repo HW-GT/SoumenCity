@@ -45,6 +45,26 @@ ActiveRecord::Schema.define(version: 20171201051544) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "description"
+    t.string   "amount"
+    t.string   "price"
+    t.text     "tips"
+    t.integer  "user_id"
+    t.string   "serial_id"
+    t.string   "stock"
+    t.string   "shipping"
+    t.boolean  "active"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

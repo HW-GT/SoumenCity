@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
     unless @company
       @company = Company.new
     else
-      @company = Company.find_by_user_id(current_user.id)
+      render :edit
     end
   end
 
@@ -48,7 +48,7 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:store_name, :company_name, :manager_name, 
       :postal_code, :address, :access, :phone_number, :fax_number, 
-      :business_hours, :description, :homepage, :image)
+      :business_hours, :description, :email, :homepage, :image)
   end
 
 end

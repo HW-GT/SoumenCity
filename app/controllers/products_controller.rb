@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
+
+  before_action :set_product, only: [:create, :show, :edit, :update]
+
   def index
+    @products = Product.where(active: true).order("id DESC")
   end
 
   def show
@@ -16,4 +20,11 @@ class ProductsController < ApplicationController
 
   def update
   end
+
+
+  private
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 end

@@ -11,7 +11,7 @@
             <% end %>
         </li>
         <li style="padding: 0px 27px; display: inline;">
-            <%= link_to root_path, :style => "color: #555555; text-decoration: none;" do %>
+            <%= link_to products_index_path, :style => "color: #555555; text-decoration: none;" do %>
                 商品管理
             <% end %>
         </li>
@@ -31,15 +31,8 @@
             <% end %>
         </li>
         <li style="padding: 0px 27px; display: inline;">
-            <% @company = Company.find_by_user_id(current_user.id) %>
-            <% unless @company %>
-                <%= link_to companies_new_path, :style => "color: #555555; text-decoration: none;" do %>
-                    店舗情報
-                <% end %>
-            <% else %>
-                <%= link_to companies_edit_path, :style => "color: #555555; text-decoration: none;" do %>
-                    店舗情報
-                <% end %>
+            <%= link_to companies_new_path, :style => "color: #555555; text-decoration: none;" do %>
+                店舗情報
             <% end %>
         </li> 
         <li style="padding: 0px 27px; display: inline;">

@@ -6,7 +6,7 @@
   <h3>店舗情報の編集</h3>
   <hr>
 
-  <%= form_for([:company, @company], url: companies_create_path, html: { multipart: true}) do |f| %>
+  <%= form_for([:company, @company], url: companies_create_path, html: { multipart: true}) do |f| %>  
 
       <div class="row">
         <div class="col-md-3 row-space-4">
@@ -117,7 +117,15 @@
                   <div class="col-md-9 form-group">
                     <%= f.text_field :homepage, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
                   </div>
+                  <div class="col-md-3">
+                    <h5>メールアドレス</h5>
+                  </div>
+                  <div class="col-md-9 form-group">
+                    <%= f.text_field :email, autofocus: true, :placeholder => "入力", :class => 'form-control radius', required: "true" %>
+                  </div>
+                </div>
 
+                <div class="row" style="text-align: right; padding-top: 12px;"> 
                   <div class="col-md-3">
                     <h5>店舗画像</h5>
                   </div>

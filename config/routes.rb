@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'products/index'
-
-  get 'products/show'
-
-  get 'products/new'
-
-  get 'products/create'
-
-  get 'products/edit'
-
-  get 'products/update'
-
   root :to => 'pages#index'
 
   # ユーザー登録と編集
@@ -36,6 +24,14 @@ Rails.application.routes.draw do
   get 'companies/show'
   get 'companies/edit'
   patch 'companies/update'
+
+  # 商品管理
+  get 'products/index'
+  get 'products/show'
+  get 'products/new'
+  get 'products/create'
+  get 'products/edit'
+  get 'products/update'
 
   # お知らせ表示
   get 'information/index'
